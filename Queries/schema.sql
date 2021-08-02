@@ -1,14 +1,10 @@
--- create table department for PH-EmployeeDB
-
-CREATE TABLE departments(
-	dept_no VARCHAR(4) NOT NULL,
-	dept_name VARCHAR(40) NOT NULL,
-	PRIMARY KEY (dept_no),
-	UNIQUE (dept_name)
+-- Creating tables for PH-EmployeeDB
+CREATE TABLE departments (
+     dept_no VARCHAR(4) NOT NULL,
+     dept_name VARCHAR(40) NOT NULL,
+     PRIMARY KEY (dept_no),
+     UNIQUE (dept_name)
 );
-
--- to view departments table
-SELECT * FROM departments;
 
 -- create table employees
 
@@ -22,7 +18,6 @@ CREATE TABLE employees(
 	PRIMARY KEY (emp_no)
 );
 
-SELECT * FROM employees;
 
 -- create table department manager
 CREATE TABLE dept_manager (
@@ -35,8 +30,6 @@ FOREIGN KEY (dept_no) REFERENCES departments (dept_no),
     PRIMARY KEY (emp_no, dept_no)
 );
 
-SELECT * FROM dept_manager;
-
 -- create table salaries
 CREATE TABLE salaries (
   emp_no INT NOT NULL,
@@ -46,8 +39,6 @@ CREATE TABLE salaries (
   FOREIGN KEY (emp_no) REFERENCES employees (emp_no),
   PRIMARY KEY (emp_no)
 );
-
-SELECT * FROM salaries;
 
 -- create table dept_emp
 CREATE TABLE dept_emp(
@@ -60,8 +51,6 @@ CREATE TABLE dept_emp(
 	PRIMARY KEY (emp_no, dept_no)
 );
 
-SELECT * FROM dept_emp;
-
 -- create table titles
 CREATE TABLE titles(
 	emp_no INT NOT NULL,
@@ -71,4 +60,11 @@ CREATE TABLE titles(
 	FOREIGN KEY (emp_no) REFERENCES employees(emp_no)
 );
 
+DROP TABLE titles;
+---- SELECT Queries
+SELECT * FROM departments;
+SELECT * FROM employees;
+SELECT * FROM dept_manager;
+SELECT * FROM salaries;
+SELECT * FROM dept_emp;
 SELECT * FROM titles;
